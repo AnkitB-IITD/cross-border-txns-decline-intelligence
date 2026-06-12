@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Border Txns Decline Intelligence — demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Decline Intelligence</h1>
+    <span class="sub" id="tax-stats">loading taxonomy…</span>
+    <span class="disclaimer">Simulated data — assumptions in sample-data.js</span>
+  </header>
+
+  <nav>
+    <button data-view="view-corridors" class="active">Corridor health</button>
+    <button data-view="view-drilldown">Failure drill-down</button>
+    <button data-view="view-ops">Ops routing queue</button>
+  </nav>
+
+  <main>
+    <div id="app-error"></div>
+
+    <section id="view-corridors" class="view active">
+      <h2>Corridor health — last 30 days</h2>
+      <p class="desc">Decline rate per corridor with daily trend. Red spark bars mark spike days. The "worst leg" tells you where in the chain each corridor is bleeding.</p>
+      <div class="kpis" id="kpis"></div>
+      <div class="corridor-grid" id="corridor-grid"></div>
+    </section>
+
+    <section id="view-drilldown" class="view">
+      <h2>Failure drill-down</h2>
+      <p class="desc">Declines attributed to the leg that actually failed, classified by the taxonomy's root category, then ranked by value at risk — the order you should fix things in.</p>
+      <div class="controls">
+        <select id="dd-corridor"></select>
+      </div>
+      <div class="two-col">
+        <div class="section">
+          <h3>By failed leg</h3>
+          <table><thead><tr><th>Leg</th><th class="num">Declines</th><th class="num">Value at risk</th><th>Share</th></tr></thead>
+          <tbody id="dd-legs"></tbody></table>
+        </div>
+        <div class="section">
+          <h3>By root category</h3>
+          <table><thead><tr><th>Category</th><th class="num">Declines</th><th class="num">Value at risk</th><th>Share</th></tr></thead>
+          <tbody id="dd-cats"></tbody></table>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Top culprits — ranked by value at risk</h3>
+        <table>
+          <thead><tr><th>Code</th><th>Meaning</th><th>Category</th><th>Retryability</th><th>Leg</th><th class="num">Count</th><th class="num">Value</th><th>ISO equiv.</th></tr></thead>
+          <tbody id="dd-codes"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="view-ops" class="view">
+      <h2>Ops routing queue</h2>
+      <p class="desc">Every decline routed to the one team that can act on it, with retryability split and SLA aging. Mis-routed declines are the most expensive kind.</p>
+      <div class="queue-grid" id="queue-grid"></div>
+      <div class="section">
+        <h3>Highest-value actionable items</h3>
+        <table>
+          <thead><tr><th>Txn</th><th>Corridor</th><th class="num">Amount</th><th>Code</th><th>Retryability</th><th>Route to</th><th>Customer message</th></tr></thead>
+          <tbody id="ops-list"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://github.com/AnkitB-IITD/cross-border-txns-decline-intelligence">Cross-Border Txns Decline Intelligence</a> — open taxonomy ·
+    166 decline codes across 6 rails · by <a href="https://linkedin.com/in/ankitb-iitd">Ankit Beniwal</a>
+  </footer>
+
+  <script src="sample-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
