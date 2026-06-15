@@ -26,7 +26,7 @@ When a payment fails, the terminal code the customer sees often comes from a *di
 | [`docs/schema.md`](docs/schema.md) | Field definitions and design rationale |
 | [`dashboard/`](dashboard/) | Decline Intelligence demo — a dashboard that runs on this taxonomy |
 
-## Coverage (v0.1)
+## Coverage (v0.2)
 
 | Rail | Codes | Notes |
 |------|-------|-------|
@@ -77,7 +77,7 @@ Open `dashboard/index.html` in a browser, or serve the repo root and navigate to
 
 - Descriptions are paraphrased from public documentation — always verify against the current official spec before production use (rails revise their code lists).
 - `leg` assignments reflect a typical India-outbound flow; your corridor mix may differ.
-- This is v0.1 of a mapping that improves with corrections from people who see real reject files. **If your data disagrees with this taxonomy, please open an issue.**
+- This is v0.2 of a mapping that improves with corrections from people who see real reject files. **If your data disagrees with this taxonomy, please open an issue.**
 
 ## Author
 
