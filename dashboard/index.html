@@ -58,10 +58,13 @@
 
     <section id="view-ops" class="view">
       <h2>Ops routing queue</h2>
-      <p class="desc">Every decline routed to the one team that can act on it, with retryability split and SLA aging. Mis-routed declines are the most expensive kind.</p>
+      <p class="desc">Every decline routed to the one team that can act on it, with retryability split and SLA aging. Mis-routed declines are the most expensive kind. <b>Click a team tile to see its queue; click a retryability chip to narrow further.</b></p>
       <div class="queue-grid" id="queue-grid"></div>
       <div class="section">
-        <h3>Highest-value actionable items</h3>
+        <div class="ops-list-head">
+          <h3 id="ops-list-title">Highest-value actionable items</h3>
+          <button id="ops-clear" class="ops-clear" hidden>Clear filter ✕</button>
+        </div>
         <table>
           <thead><tr><th>Txn</th><th>Corridor</th><th class="num">Amount</th><th>Code</th><th>Retryability</th><th>Route to</th><th>Customer message</th></tr></thead>
           <tbody id="ops-list"></tbody>
