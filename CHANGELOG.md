@@ -1,5 +1,9 @@
 # Changelog
 
+## Maintenance — 2026-06-15
+
+- Repository hygiene: commit history consolidated to a single author and authored via a GitHub noreply address. No functional changes to the taxonomy or dashboard.
+
 ## v0.2.0 — 2026-06-15
 
 - **Interactive ops routing queue.** Click a team tile to filter the worklist to that team's transactions (terminal items included, which the default actionable view hides). Click a retryability chip (retryable / after fix / terminal) to narrow further. Selected tile and chip are highlighted; a Clear button resets; toggling steps the filter back out. Keyboard accessible.
